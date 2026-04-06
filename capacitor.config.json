@@ -1,6 +1,5 @@
 {
   "appId": "com.ykstakip.app",
   "appName": "YKS Takip",
-  "webDir": ".",
-  "bundledWebRuntime": false
+  "webDir": "www"
 }
