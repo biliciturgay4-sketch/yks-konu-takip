@@ -1,33 +1,38 @@
 name: Build APK
-on: [push]
+
+on:
+  push:
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Force Node 20
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          
-      - name: Java Setup
+
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Fix Capacitor & Build
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Android
         run: |
-          npm install @capacitor/cli @capacitor/core @capacitor/android
-          npx cap add android || true
-          npx cap copy
+          npx cap sync android
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
 
-      - name: Upload
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Uygulamam
+          name: yks-takip-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
