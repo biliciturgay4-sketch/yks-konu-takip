@@ -5,29 +5,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: set up JDK 17
+      
+      - name: Force Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - name: Java Setup
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Install Capacitor
-        run: npm install @capacitor/cli @capacitor/core @capacitor/android
-      - name: Create Android Folder
+
+      - name: Fix Capacitor & Build
         run: |
+          npm install @capacitor/cli @capacitor/core @capacitor/android
           npx cap add android || true
           npx cap copy
-      - name: Build APK
-        run: |
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
-      - name: Upload APK
+
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: YKS-Takip-Uygulamasi
+          name: Uygulamam
           path: android/app/build/outputs/apk/debug/app-debug.apk
-
