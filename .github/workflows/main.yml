@@ -1,4 +1,4 @@
-# Build 4
+# Build 5
 name: Build APK
 
 on: [push]
@@ -38,7 +38,8 @@ jobs:
 
       - name: Sign APK
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > ykstakip.keystore
+          echo "${{ secrets.KEYSTORE_BASE64 }}" > keystore_b64.txt
+          base64 -d keystore_b64.txt > ykstakip.keystore
           BUILD_TOOLS=$(ls /usr/local/lib/android/sdk/build-tools/ | sort -V | tail -1)
           /usr/local/lib/android/sdk/build-tools/$BUILD_TOOLS/zipalign -v -p 4 \
             android/app/build/outputs/apk/release/app-release-unsigned.apk \
