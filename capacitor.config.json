@@ -1,0 +1,6 @@
+{
+  "appId": "com.yks.takip",
+  "appName": "YKS Konu Takip",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
