@@ -1,0 +1,22 @@
+name: Generate Keystore
+
+on: [push]
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Keystore
+        run: |
+          keytool -genkey -v \
+            -keystore ykstakip.keystore \
+            -alias ykstakip \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=YKS Takip, OU=App, O=YKS, L=Istanbul, S=Istanbul, C=TR" \
+            -storepass SENIN_SIFREN \
+            -keypass SENIN_SIFREN
+
+      - name: Show Base64
+        run: base64 ykstakip.keystore
