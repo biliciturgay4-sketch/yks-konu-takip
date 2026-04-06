@@ -1,4 +1,4 @@
-# Build 7
+# Build 8
 name: Build AAB
 
 on: [push]
@@ -38,15 +38,8 @@ jobs:
 
       - name: Sign AAB
         run: |
-          keytool -genkey -v \
-            -keystore ykstakip.keystore \
-            -alias ykstakip \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -dname "CN=YKS Takip, OU=App, O=YKS, L=Istanbul, S=Istanbul, C=TR" \
-            -storepass ${{ secrets.KEYSTORE_PASSWORD }} \
-            -keypass ${{ secrets.KEY_PASSWORD }}
+          echo "${{ secrets.KEYSTORE_BASE64 }}" > keystore_b64.txt
+          base64 -d keystore_b64.txt > ykstakip.keystore
           jarsigner -verbose \
             -sigalg SHA256withRSA \
             -digestalg SHA-256 \
@@ -56,8 +49,6 @@ jobs:
             android/app/build/outputs/bundle/release/app-release.aab \
             ykstakip
           cp android/app/build/outputs/bundle/release/app-release.aab app-signed.aab
-      - name: Show Keystore Base64
-        run: base64 -w 0 ykstakip.keystore
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
