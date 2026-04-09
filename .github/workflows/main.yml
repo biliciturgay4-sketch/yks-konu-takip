@@ -31,8 +31,8 @@ jobs:
         run: |
           npx cap add android
           npx cap sync android
+          sed -i "s/targetSdk = 34/targetSdk = 35/" android/app/build.gradle
           sed -i "s/versionCode 1/versionCode $GITHUB_RUN_NUMBER/" android/app/build.gradle
-          sed -i "s/targetSdkVersion 34/targetSdkVersion 35/" android/app/build.gradle
           cd android
           chmod +x gradlew
           ./gradlew bundleRelease
