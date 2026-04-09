@@ -31,9 +31,10 @@ jobs:
         run: |
           npx cap add android
           npx cap sync android
+          sed -i "s/versionCode 1/versionCode $GITHUB_RUN_NUMBER/" android/app/build.gradle
           cd android
           chmod +x gradlew
-          ./gradlew bundleRelease -PversionCode=$GITHUB_RUN_NUMBER
+          ./gradlew bundleRelease
 
       - name: Sign AAB
         run: |
