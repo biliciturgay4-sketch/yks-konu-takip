@@ -37,6 +37,8 @@ jobs:
           sed -i "s/compileSdk = 34/compileSdk = 35/g" android/app/build.gradle
           sed -i "s/compileSdk 34/compileSdk 35/g" android/app/build.gradle
           sed -i "s/targetSdk 34/targetSdk 35/g" android/app/build.gradle
+          sed -i "s/targetSdkVersion = 34/targetSdkVersion = 35/g" android/variables.gradle
+          sed -i "s/compileSdkVersion = 34
           sed -i "s/versionCode 1/versionCode $GITHUB_RUN_NUMBER/g" android/app/build.gradle
           cat android/app/build.gradle
           cd android
