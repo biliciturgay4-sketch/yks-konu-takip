@@ -15,8 +15,8 @@ jobs:
             -keysize 2048 \
             -validity 10000 \
             -dname "CN=YKS Takip, OU=App, O=YKS, L=Istanbul, S=Istanbul, C=TR" \
-            -storepass SENIN_SIFREN \
-            -keypass Turgay.558265
+            -storepass 123456 \
+            -keypass 123456
 
       - name: Show Base64
         run: base64 ykstakip.keystore
