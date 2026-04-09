@@ -33,7 +33,7 @@ jobs:
           npx cap sync android
           cd android
           chmod +x gradlew
-          ./gradlew bundleRelease
+          ./gradlew bundleRelease -PversionCode=$GITHUB_RUN_NUMBER
 
       - name: Sign AAB
         run: |
