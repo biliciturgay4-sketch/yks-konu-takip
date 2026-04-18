@@ -1,6 +1,6 @@
 {
   "name": "yks-takip",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "dependencies": {
     "@capacitor/android": "^6.0.0",
     "@capacitor/cli": "^6.0.0",
