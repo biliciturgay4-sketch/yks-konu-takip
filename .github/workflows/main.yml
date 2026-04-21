@@ -40,6 +40,27 @@ jobs:
           sed -i "s/targetSdkVersion = 34/targetSdkVersion = 35/g" android/variables.gradle
           sed -i "s/compileSdkVersion = 34/compileSdkVersion = 35/g" android/variables.gradle
           sed -i "s/versionCode 1/versionCode $GITHUB_RUN_NUMBER/g" android/app/build.gradle
+
+      - name: Add App Icon
+        run: |
+          mkdir -p android/app/src/main/res/mipmap-xxxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xhdpi
+          mkdir -p android/app/src/main/res/mipmap-hdpi
+          mkdir -p android/app/src/main/res/mipmap-mdpi
+          convert icon.png -resize 192x192 android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+          convert icon.png -resize 192x192 android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
+          convert icon.png -resize 144x144 android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+          convert icon.png -resize 144x144 android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
+          convert icon.png -resize 96x96 android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+          convert icon.png -resize 96x96 android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
+          convert icon.png -resize 72x72 android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+          convert icon.png -resize 72x72 android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png
+          convert icon.png -resize 48x48 android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+          convert icon.png -resize 48x48 android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+
+      - name: Build AAB
+        run: |
           cat android/app/build.gradle
           cd android
           chmod +x gradlew
