@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050810"/>
+      <stop offset="100%" style="stop-color:#0a0f22"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="42%" r="45%">
+      <stop offset="0%" style="stop-color:#7c6fff;stop-opacity:0.4"/>
+      <stop offset="60%" style="stop-color:#4422ff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#000;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="diamondTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="30%" style="stop-color:#c4b5fd"/>
+      <stop offset="70%" style="stop-color:#7c6fff"/>
+      <stop offset="100%" style="stop-color:#4c3fcf"/>
+    </linearGradient>
+    <linearGradient id="diamondLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#6d5fff"/>
+    </linearGradient>
+    <linearGradient id="diamondRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#5b4fcf"/>
+      <stop offset="100%" style="stop-color:#3d2fa0"/>
+    </linearGradient>
+    <linearGradient id="diamondBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c6fff"/>
+      <stop offset="100%" style="stop-color:#2a1f8f"/>
+    </linearGradient>
+    <linearGradient id="shine1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="50%" style="stop-color:#e0d4ff"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffe566"/>
+      <stop offset="100%" style="stop-color:#ffaa00"/>
+    </linearGradient>
+    <filter id="diamondGlow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="sparkleGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" ry="112" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="112" ry="112" fill="url(#centerGlow)"/>
+
+  <!-- Stars -->
+  <circle cx="75" cy="60" r="1.5" fill="white" opacity="0.7"/>
+  <circle cx="130" cy="40" r="1" fill="white" opacity="0.5"/>
+  <circle cx="390" cy="50" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="450" cy="80" r="1" fill="white" opacity="0.4"/>
+  <circle cx="60" cy="140" r="1" fill="white" opacity="0.4"/>
+  <circle cx="470" cy="150" r="1.5" fill="white" opacity="0.5"/>
+  <circle cx="310" cy="35" r="1" fill="white" opacity="0.6"/>
+  <circle cx="170" cy="55" r="1" fill="white" opacity="0.5"/>
+
+  <!-- Diamond shadow/glow -->
+  <ellipse cx="256" cy="310" rx="90" ry="20" fill="#7c6fff" opacity="0.2"/>
+
+  <!-- DIAMOND -->
+  <g filter="url(#diamondGlow)">
+    <!-- Top facets (crown) -->
+    <!-- Top center triangle -->
+    <polygon points="256,95 206,175 256,155" fill="url(#shine1)" opacity="0.95"/>
+    <polygon points="256,95 256,155 306,175" fill="#c4b5fd" opacity="0.85"/>
+
+    <!-- Left crown facets -->
+    <polygon points="180,165 206,175 256,155 256,95" fill="url(#diamondTop)" opacity="0.9"/>
+    <!-- Right crown facets -->
+    <polygon points="332,165 306,175 256,155 256,95" fill="#9d8bfa" opacity="0.85"/>
+
+    <!-- Girdle (middle belt) -->
+    <polygon points="168,185 206,175 256,175 306,175 344,185 306,195 256,195 206,195" fill="#b8acf8" opacity="0.9"/>
+
+    <!-- Pavilion (bottom) - left facets -->
+    <polygon points="168,185 206,195 256,195 256,315" fill="url(#diamondLeft)" opacity="0.95"/>
+    <polygon points="168,185 256,195 256,315" fill="url(#diamondLeft)" opacity="0.7"/>
+
+    <!-- Pavilion - right facets -->
+    <polygon points="344,185 306,195 256,195 256,315" fill="url(#diamondRight)" opacity="0.95"/>
+    <polygon points="344,185 256,195 256,315" fill="url(#diamondRight)" opacity="0.7"/>
+
+    <!-- Bottom tip highlight -->
+    <polygon points="240,295 256,315 272,295 256,285" fill="#a78bfa" opacity="0.8"/>
+
+    <!-- Inner light reflection -->
+    <polygon points="220,200 256,195 256,260 230,240" fill="white" opacity="0.12"/>
+    <polygon points="256,195 292,200 282,240 256,260" fill="white" opacity="0.07"/>
+
+    <!-- Top shine -->
+    <polygon points="222,172 256,155 248,175 215,178" fill="white" opacity="0.4"/>
+  </g>
+
+  <!-- Sparkles around diamond -->
+  <g filter="url(#sparkleGlow)">
+    <!-- Top sparkle -->
+    <path d="M256,68 L259,78 L269,78 L261,84 L264,94 L256,88 L248,94 L251,84 L243,78 L253,78 Z" fill="url(#goldGrad)" opacity="0.9"/>
+
+    <!-- Left sparkle -->
+    <path d="M118,210 L121,218 L129,218 L123,223 L125,231 L118,226 L111,231 L113,223 L107,218 L115,218 Z" fill="#a78bfa" opacity="0.8"/>
+
+    <!-- Right sparkle -->
+    <path d="M394,210 L397,218 L405,218 L399,223 L401,231 L394,226 L387,231 L389,223 L383,218 L391,218 Z" fill="#a78bfa" opacity="0.8"/>
+
+    <!-- Small dot sparkles -->
+    <circle cx="145" cy="155" r="3" fill="white" opacity="0.6"/>
+    <circle cx="367" cy="155" r="3" fill="white" opacity="0.6"/>
+    <circle cx="130" cy="280" r="2" fill="#7c6fff" opacity="0.7"/>
+    <circle cx="382" cy="280" r="2" fill="#7c6fff" opacity="0.7"/>
+
+    <!-- 4-point star sparkles -->
+    <path d="M148,148 L150,155 L157,155 L150,162 L148,169 L146,162 L139,155 L146,155 Z" fill="white" opacity="0.5"/>
+    <path d="M364,148 L366,155 L373,155 L366,162 L364,169 L362,162 L355,155 L362,155 Z" fill="white" opacity="0.5"/>
+  </g>
+
+  <!-- YKS TEXT -->
+  <text x="256" y="415"
+    font-family="'Arial Black', 'Arial Bold', sans-serif"
+    font-size="90"
+    font-weight="900"
+    text-anchor="middle"
+    fill="url(#textGrad)"
+    filter="url(#textGlow)"
+    letter-spacing="4">YKS</text>
+
+  <!-- Divider -->
+  <rect x="150" y="424" width="212" height="2.5" rx="1.5" fill="url(#textGrad)" opacity="0.4"/>
+
+  <!-- TAKİP -->
+  <text x="256" y="458"
+    font-family="'Arial', sans-serif"
+    font-size="27"
+    font-weight="700"
+    text-anchor="middle"
+    fill="#9985e0"
+    letter-spacing="11">TAKİP</text>
+</svg>
